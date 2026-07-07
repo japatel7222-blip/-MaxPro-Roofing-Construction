@@ -1,0 +1,356 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>MaxPro Roofing & Construction | Dallas, GA</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#101317;
+  --charcoal:#171b21;
+  --steel:#29313a;
+  --blue:#1267ff;
+  --blue2:#46a3ff;
+  --orange:#ff7a1a;
+  --white:#ffffff;
+  --soft:#f3f6fa;
+  --muted:#6b7280;
+  --line:rgba(16,19,23,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,sans-serif;background:var(--soft);color:var(--ink);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit}
+.progress{position:fixed;top:0;left:0;width:0%;height:4px;background:linear-gradient(90deg,var(--blue),var(--orange));z-index:3000}
+.nav{
+  position:fixed;top:0;left:0;width:100%;z-index:2000;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:22px 6vw;color:white;
+  background:linear-gradient(to bottom,rgba(16,19,23,.86),rgba(16,19,23,.18),transparent);
+  transition:.35s ease;
+}
+.nav.scrolled{background:rgba(16,19,23,.92);backdrop-filter:blur(18px);padding:15px 6vw}
+.logo{font-family:Archivo,sans-serif;font-weight:900;font-size:31px;letter-spacing:-1.2px;display:flex;align-items:center;gap:12px}
+.logo span{color:var(--orange)}
+.logo-mark{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--orange));display:grid;place-items:center;color:white;font-weight:900}
+.links{display:flex;gap:28px;align-items:center}
+.links a{font-size:12px;text-transform:uppercase;letter-spacing:1.5px;font-weight:800;color:rgba(255,255,255,.82)}
+.links .cta{background:var(--orange);padding:13px 18px;border-radius:10px;color:white}
+
+.hero{
+  min-height:100vh;position:relative;overflow:hidden;
+  display:grid;grid-template-columns:1.05fr .95fr;gap:58px;align-items:center;
+  padding:132px 6vw 78px;
+  background:radial-gradient(circle at 78% 18%,rgba(18,103,255,.35),transparent 28%),linear-gradient(135deg,#0e1117 0%,#1c2632 55%,#0e1117 100%);
+  color:white;
+}
+.hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.8),transparent 85%)}
+.diagonal{position:absolute;right:-10%;top:-20%;width:55%;height:150%;background:linear-gradient(135deg,rgba(18,103,255,.5),rgba(255,122,26,.38));transform:rotate(16deg);filter:blur(.2px);animation:diag 7s ease-in-out infinite alternate}
+@keyframes diag{to{transform:rotate(16deg) translateX(-35px)}}
+.hero-copy{position:relative;z-index:3}
+.eyebrow{display:flex;align-items:center;gap:14px;color:var(--blue2);text-transform:uppercase;letter-spacing:2.5px;font-size:12px;font-weight:900;margin-bottom:24px}
+.eyebrow:before{content:"";width:54px;height:2px;background:var(--orange)}
+h1{font-family:Archivo,sans-serif;font-weight:900;font-size:clamp(56px,8.2vw,118px);line-height:.88;letter-spacing:-5px;text-transform:uppercase}
+.hero-copy p{margin-top:30px;max-width:670px;font-size:18px;line-height:1.85;color:rgba(255,255,255,.75)}
+.actions{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:16px 23px;border-radius:10px;background:var(--blue);color:white;font-size:12px;font-weight:900;letter-spacing:1.4px;text-transform:uppercase;box-shadow:0 18px 48px rgba(18,103,255,.28);transition:.35s}
+.btn:hover{transform:translateY(-4px)}
+.btn.alt{background:transparent;border:1px solid rgba(255,255,255,.35);box-shadow:none}
+.hero-card{position:relative;z-index:4;min-height:690px;border-radius:28px;overflow:hidden;box-shadow:0 48px 120px rgba(0,0,0,.36);transform-style:preserve-3d;transition:.2s ease;background:#1b2027}
+.photo{position:absolute;inset:0;background:url("https://lh3.googleusercontent.com/gps-cs-s/APNQkAHSo4TLt34LlYg3QeCs01oLrjSj8FxXd0YvYxa1moKgu5fKoA-SWcAD0D__7IhTEsgHwlyeG2LECzH7T2zGY97wgb-aVOFiEhVl5X-26nj3eAVWs_rPVft0yXAWLCVioVfE1S69QA=w1200-h1600-k-no") center/cover;transform:scale(1.06);animation:photo 11s ease-in-out infinite alternate}
+@keyframes photo{to{transform:scale(1.13) translateY(-18px)}}
+.hero-card:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.72),transparent 55%)}
+.badge-grid{position:absolute;left:24px;right:24px;bottom:24px;z-index:3;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.badge{background:rgba(255,255,255,.88);backdrop-filter:blur(14px);color:var(--ink);padding:20px;border-radius:18px}
+.badge b{display:block;font-family:Archivo,sans-serif;font-size:34px;color:var(--blue);line-height:1}
+.badge span{display:block;margin-top:6px;color:var(--muted);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:1px}
+.reveal{opacity:0;transform:translateY(44px);transition:1s cubic-bezier(.2,.8,.2,1)}
+.reveal.visible{opacity:1;transform:none}
+
+.ticker{background:white;overflow:hidden;border-bottom:1px solid var(--line);border-top:1px solid var(--line);padding:18px 0}
+.ticker-track{display:flex;width:max-content;animation:ticker 22s linear infinite}
+.ticker span{padding:0 32px;color:var(--steel);font-weight:900;text-transform:uppercase;letter-spacing:1.8px;font-size:12px}
+@keyframes ticker{to{transform:translateX(-50%)}}
+
+section{padding:110px 6vw}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:50px;margin-bottom:58px}
+.kicker{color:var(--blue);text-transform:uppercase;font-weight:900;letter-spacing:2.2px;font-size:12px;margin-bottom:14px}
+h2{font-family:Archivo,sans-serif;font-size:clamp(42px,5.6vw,78px);line-height:.92;letter-spacing:-3px;text-transform:uppercase}
+.lead{max-width:650px;color:var(--muted);font-size:17px;line-height:1.85}
+
+/* Built-in roof/construction visuals */
+.pro-visual{position:relative;min-height:360px;height:100%;background:linear-gradient(#b8d9ff,#f5fbff 48%,#cfd9c7 49%);overflow:hidden}
+.pro-home{position:absolute;left:14%;right:14%;bottom:0;height:48%;background:#fff;border-top:8px solid #e6e6e6}
+.pro-roof{position:absolute;left:7%;right:7%;top:22%;height:34%;clip-path:polygon(50% 0,100% 78%,92% 100%,8% 100%,0 78%);background:repeating-linear-gradient(0deg,rgba(255,255,255,.16) 0 2px,transparent 2px 30px),repeating-linear-gradient(90deg,rgba(0,0,0,.14) 0 2px,transparent 2px 92px),linear-gradient(135deg,#434b55,#161b22)}
+.pro-window{position:absolute;bottom:15%;width:14%;height:25%;background:#a9d9ff;border:7px solid #f3f3f3}
+.pro-window.w1{left:25%}.pro-window.w2{right:25%}
+.pro-door{position:absolute;left:45%;bottom:0;width:10%;height:35%;background:#5b3d2a;border-top:6px solid var(--orange)}
+.pro-tool{position:absolute;right:14%;top:18%;width:84px;height:84px;border-radius:18px;background:linear-gradient(135deg,var(--blue),var(--orange));display:grid;place-items:center;color:white;font-family:Archivo,sans-serif;font-weight:900;font-size:28px;box-shadow:0 18px 40px rgba(0,0,0,.22);animation:float 4s ease-in-out infinite alternate}
+@keyframes float{to{transform:translateY(-14px)}}
+.pro-visual.damaged .pro-roof{background:radial-gradient(circle at 30% 55%,#111 0 4%,transparent 4.5%),radial-gradient(circle at 65% 38%,#111 0 3%,transparent 3.5%),repeating-linear-gradient(0deg,rgba(255,255,255,.1) 0 2px,transparent 2px 30px),linear-gradient(135deg,#746b60,#2d2b29)}
+.pro-visual.siding .pro-home{background:repeating-linear-gradient(0deg,#fff 0 22px,#edf1f4 22px 24px)}
+.pro-visual.chimney .chimney{position:absolute;left:62%;top:18%;width:8%;height:28%;background:#9a4e2d;border-top:10px solid #632b19}
+.pro-visual.remodel .pro-home:after{content:"";position:absolute;left:12%;bottom:0;width:24%;height:38%;background:linear-gradient(135deg,#dadada,#fff);border:5px dashed var(--blue)}
+.pro-visual.gutter .gutter{position:absolute;left:10%;right:10%;top:53%;height:15px;background:#111;border-bottom:4px solid var(--orange)}
+
+.services{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.service-card{position:relative;min-height:500px;border-radius:28px;overflow:hidden;background:white;box-shadow:0 24px 70px rgba(16,19,23,.09);transition:.35s}
+.service-card:hover{transform:translateY(-10px)}
+.service-card .pro-visual{height:260px;min-height:260px}
+.service-content{padding:28px}
+.service-content h3{font-family:Archivo,sans-serif;text-transform:uppercase;font-size:27px;letter-spacing:-1px;margin-bottom:12px}
+.service-content p{color:var(--muted);line-height:1.75}
+
+.scope{background:var(--charcoal);color:white}
+.scope .lead{color:rgba(255,255,255,.68)}
+.scope-grid{display:grid;grid-template-columns:330px 1fr;gap:46px}
+.scope-tabs{display:flex;flex-direction:column;gap:12px}
+.scope-tab{border:none;background:rgba(255,255,255,.06);color:white;text-align:left;padding:18px 20px;border-radius:12px;font-weight:900;cursor:pointer;transition:.3s}
+.scope-tab.active,.scope-tab:hover{background:var(--orange)}
+.scope-stage{position:relative;min-height:560px;border-radius:28px;overflow:hidden;background:#202732}
+.scope-panel{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;opacity:0;transform:scale(1.03);transition:.5s}
+.scope-panel.active{opacity:1;transform:scale(1);z-index:2}
+.scope-panel .pro-visual{min-height:560px}
+.scope-copy{padding:56px;display:flex;flex-direction:column;justify-content:center;background:#202732}
+.scope-copy h3{font-family:Archivo,sans-serif;text-transform:uppercase;font-size:46px;letter-spacing:-2px;margin-bottom:18px}
+.scope-copy p{color:rgba(255,255,255,.72);line-height:1.8}
+
+.process-wrap{position:relative;background:white;border-radius:30px;box-shadow:0 30px 90px rgba(16,19,23,.08);padding:42px}
+.process-line{position:absolute;left:7%;right:7%;top:88px;height:4px;background:#e6eaf0;overflow:hidden}
+.process-line:after{content:"";position:absolute;left:0;top:0;height:100%;width:30%;background:linear-gradient(90deg,var(--blue),var(--orange));animation:run 5s ease-in-out infinite alternate}
+@keyframes run{to{width:100%}}
+.steps{position:relative;z-index:2;display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.step{text-align:center}
+.dot{width:48px;height:48px;border-radius:14px;background:var(--blue);color:white;margin:0 auto 22px;display:grid;place-items:center;font-weight:900;box-shadow:0 12px 28px rgba(18,103,255,.25)}
+.step h3{font-family:Archivo,sans-serif;text-transform:uppercase;margin-bottom:8px}
+.step p{font-size:14px;color:var(--muted);line-height:1.65}
+
+.ba{height:700px;position:relative;border-radius:32px;overflow:hidden;box-shadow:0 32px 90px rgba(16,19,23,.16);background:#111}
+.ba .pro-visual{position:absolute;inset:0;height:100%;min-height:100%}
+.ba .after{clip-path:inset(0 0 0 50%)}
+.ba-range{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;z-index:8}
+.ba-line{position:absolute;top:0;bottom:0;left:50%;width:3px;background:white;z-index:7}
+.ba-line:before{content:"DRAG";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:white;border-radius:999px;padding:14px 16px;font-size:11px;font-weight:900;letter-spacing:1.5px}
+.ba-label{position:absolute;top:26px;z-index:6;background:rgba(255,255,255,.9);padding:10px 14px;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:1.4px}
+.ba-label.left{left:26px}.ba-label.right{right:26px}
+
+.projects{display:grid;grid-template-columns:1.2fr .8fr 1fr;grid-auto-rows:280px;gap:20px}
+.project{position:relative;border-radius:28px;overflow:hidden;background:white;box-shadow:0 22px 65px rgba(16,19,23,.09)}
+.project:nth-child(1){grid-row:span 2}
+.project:nth-child(5){grid-column:span 2}
+.project .pro-visual{min-height:100%;transition:1s}
+.project:hover .pro-visual{transform:scale(1.06)}
+.project:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65),transparent 58%)}
+.project span{position:absolute;left:24px;bottom:22px;z-index:2;color:white;font-weight:900;font-size:17px}
+
+.reviews{background:linear-gradient(135deg,#fff,#eef4ff)}
+.review-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:24px}
+.feature-review{min-height:560px;border-radius:32px;padding:54px;display:flex;flex-direction:column;justify-content:end;color:white;background:linear-gradient(to top,rgba(0,0,0,.78),rgba(0,0,0,.12)),url("https://lh3.googleusercontent.com/gps-cs-s/APNQkAHSo4TLt34LlYg3QeCs01oLrjSj8FxXd0YvYxa1moKgu5fKoA-SWcAD0D__7IhTEsgHwlyeG2LECzH7T2zGY97wgb-aVOFiEhVl5X-26nj3eAVWs_rPVft0yXAWLCVioVfE1S69QA=w1200-h1600-k-no") center/cover;box-shadow:0 30px 90px rgba(16,19,23,.13)}
+.stars{color:#ffd166;letter-spacing:5px;margin-bottom:18px}
+.quote{font-family:Archivo,sans-serif;text-transform:uppercase;font-size:clamp(34px,4.4vw,60px);line-height:.98;letter-spacing:-2.5px}
+.review-stack{display:grid;gap:24px}
+.review-card{background:white;border-radius:24px;padding:30px;box-shadow:0 18px 55px rgba(16,19,23,.08)}
+.review-card p{color:var(--muted);line-height:1.8}
+
+.cta-box{margin:0 6vw 110px;border-radius:32px;overflow:hidden;min-height:500px;display:grid;grid-template-columns:1fr .9fr;background:linear-gradient(90deg,rgba(16,19,23,.93),rgba(16,19,23,.72)),url("https://lh3.googleusercontent.com/gps-cs-s/APNQkAHSo4TLt34LlYg3QeCs01oLrjSj8FxXd0YvYxa1moKgu5fKoA-SWcAD0D__7IhTEsgHwlyeG2LECzH7T2zGY97wgb-aVOFiEhVl5X-26nj3eAVWs_rPVft0yXAWLCVioVfE1S69QA=w1200-h1600-k-no") center/cover;color:white;box-shadow:0 40px 110px rgba(16,19,23,.22)}
+.cta-copy{padding:58px;display:flex;flex-direction:column;justify-content:center}
+.cta-copy p{margin-top:20px;color:rgba(255,255,255,.72);line-height:1.8;max-width:620px}
+.form{margin:40px;background:rgba(255,255,255,.9);border-radius:26px;padding:30px;display:grid;gap:14px;align-self:center}
+.form input,.form select{padding:16px 18px;border:1px solid #ddd;border-radius:12px;font-size:14px}
+.form button{border:none;border-radius:12px;padding:16px;background:var(--orange);color:white;font-weight:900;text-transform:uppercase;letter-spacing:1.4px}
+footer{background:#101317;color:white;padding:70px 6vw;display:grid;grid-template-columns:1fr 1fr;gap:40px}
+footer h2{font-family:Archivo,sans-serif;text-transform:uppercase;font-size:42px;letter-spacing:-2px}
+footer p,footer a{color:rgba(255,255,255,.68);line-height:1.8}
+.footer-links{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.floating{position:fixed;right:24px;bottom:24px;z-index:2200;background:var(--orange);color:white;padding:16px 22px;border-radius:12px;font-weight:900;text-transform:uppercase;letter-spacing:1.4px;font-size:12px;box-shadow:0 20px 50px rgba(255,122,26,.28)}
+.image-fallback{position:absolute;inset:0;background:linear-gradient(135deg,#111927,#243245);display:grid;place-items:center;color:white;font-weight:900;text-transform:uppercase;letter-spacing:1.5px}
+
+@media(max-width:1050px){
+  .links{display:none}
+  .hero,.scope-grid,.scope-panel,.review-grid,.cta-box,footer{grid-template-columns:1fr}
+  .services{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}.process-line{display:none}
+  .projects{grid-template-columns:1fr;grid-auto-rows:330px}
+  .project:nth-child(1),.project:nth-child(5){grid-row:auto;grid-column:auto}
+}
+@media(max-width:680px){
+  .services,.steps{grid-template-columns:1fr}
+  h1{letter-spacing:-2px}
+  .hero{padding-top:120px}
+  .section-head{display:block}
+}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header class="nav" id="nav">
+  <a class="logo" href="#"><span class="logo-mark">M</span>Max<span>Pro</span></a>
+  <nav class="links">
+    <a href="#services">Services</a><a href="#scope">Repairs</a><a href="#projects">Projects</a><a href="#reviews">Reviews</a><a href="#contact" class="cta">Get Quote</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="diagonal"></div>
+  <div class="hero-copy reveal">
+    <div class="eyebrow">Dallas, Georgia • Roofing & Construction</div>
+    <h1>MaxPro Roofing & Construction</h1>
+    <p>Roofing, siding, storm damage repair, chimney repair, bathroom remodels, door frame reframing, and construction services completed with clear communication, competitive pricing, and professional crews.</p>
+    <div class="actions"><a class="btn" href="#contact">Request Quote</a><a class="btn alt" href="#projects">View Work</a></div>
+  </div>
+  <div class="hero-card reveal" id="tilt">
+    <div class="photo"></div>
+    <div class="badge-grid">
+      <div class="badge"><b>4.9</b><span>Local rating</span></div>
+      <div class="badge"><b>Fast</b><span>Clean professional work</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker"><div class="ticker-track">
+  <span>Roofing</span><span>Siding Repair</span><span>Chimney Repair</span><span>Storm Damage</span><span>Bathroom Remodels</span><span>Door Frame Reframing</span><span>Construction</span>
+  <span>Roofing</span><span>Siding Repair</span><span>Chimney Repair</span><span>Storm Damage</span><span>Bathroom Remodels</span><span>Door Frame Reframing</span><span>Construction</span>
+</div></div>
+
+<section id="services">
+  <div class="section-head reveal">
+    <div><div class="kicker">Roofing + Construction</div><h2>One crew for the outside and inside repairs.</h2></div>
+    <p class="lead">MaxPro stands out because the work goes beyond basic roofing. Homeowners mention roof and siding repairs, chimney work, storm damage repairs, bathroom remodels, door frame reframing, fast completion, fair pricing, and thorough cleanup.</p>
+  </div>
+  <div class="services reveal">
+    <article class="service-card"><div class="pro-visual"><div class="pro-roof"></div><div class="pro-home"></div><div class="pro-window w1"></div><div class="pro-window w2"></div><div class="pro-door"></div><div class="pro-tool">R</div></div><div class="service-content"><h3>Roofing</h3><p>Roof replacement, repairs, inspections, and storm-related roof work completed with professional communication.</p></div></article>
+    <article class="service-card"><div class="pro-visual siding"><div class="pro-roof"></div><div class="pro-home"></div><div class="pro-window w1"></div><div class="pro-window w2"></div><div class="pro-door"></div><div class="pro-tool">S</div></div><div class="service-content"><h3>Siding Repair</h3><p>Exterior repair work that protects the home envelope and improves the finished appearance.</p></div></article>
+    <article class="service-card"><div class="pro-visual chimney"><div class="chimney"></div><div class="pro-roof"></div><div class="pro-home"></div><div class="pro-window w1"></div><div class="pro-door"></div><div class="pro-tool">C</div></div><div class="service-content"><h3>Chimney Repair</h3><p>Chimney, roofline, flashing, and related exterior repairs handled with a thorough inspection first.</p></div></article>
+    <article class="service-card"><div class="pro-visual remodel"><div class="pro-roof"></div><div class="pro-home"></div><div class="pro-window w1"></div><div class="pro-door"></div><div class="pro-tool">+</div></div><div class="service-content"><h3>Remodels</h3><p>Bathroom remodels, door frame reframing, and interior repairs connected to larger home projects.</p></div></article>
+  </div>
+</section>
+
+<section class="scope" id="scope">
+  <div class="section-head reveal">
+    <div><div class="kicker">Problem Solver</div><h2>Choose the repair. Get the right plan.</h2></div>
+    <p class="lead">The site guides homeowners toward the exact type of issue they need solved instead of forcing them through a generic contractor page.</p>
+  </div>
+  <div class="scope-grid reveal">
+    <div class="scope-tabs">
+      <button class="scope-tab active" data-tab="0">Storm Damage</button>
+      <button class="scope-tab" data-tab="1">Roof + Siding</button>
+      <button class="scope-tab" data-tab="2">Chimney Repair</button>
+      <button class="scope-tab" data-tab="3">Door Frame Reframing</button>
+      <button class="scope-tab" data-tab="4">Bathroom Remodel</button>
+    </div>
+    <div class="scope-stage">
+      <div class="scope-panel active"><div class="pro-visual damaged"><div class="pro-roof"></div><div class="pro-home"></div><div class="pro-window w1"></div><div class="pro-window w2"></div><div class="pro-door"></div></div><div class="scope-copy"><h3>Storm Damage Repair</h3><p>Inspect the roof, siding, chimney, flashing, and exterior damage after severe weather, then recommend the cleanest path to repair.</p></div></div>
+      <div class="scope-panel"><div class="pro-visual siding"><div class="pro-roof"></div><div class="pro-home"></div><div class="pro-window w1"></div><div class="pro-window w2"></div><div class="pro-door"></div></div><div class="scope-copy"><h3>Roof + Siding</h3><p>Coordinate exterior repairs so the roofline, siding, trim, and water management details work together.</p></div></div>
+      <div class="scope-panel"><div class="pro-visual chimney"><div class="chimney"></div><div class="pro-roof"></div><div class="pro-home"></div></div><div class="scope-copy"><h3>Chimney Repair</h3><p>Repair chimney-related roofline problems, flashing details, and exterior issues that can lead to leaks.</p></div></div>
+      <div class="scope-panel"><div class="pro-visual remodel"><div class="pro-roof"></div><div class="pro-home"></div><div class="pro-door"></div></div><div class="scope-copy"><h3>Door Frame Reframing</h3><p>Reframe damaged or poorly installed door openings so the finished repair is secure, clean, and properly aligned.</p></div></div>
+      <div class="scope-panel"><div class="pro-visual remodel"><div class="pro-roof"></div><div class="pro-home"></div><div class="pro-window w1"></div><div class="pro-door"></div></div><div class="scope-copy"><h3>Bathroom Remodel</h3><p>Interior construction and remodeling handled with the same professionalism customers expect from the exterior work.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-head reveal"><div><div class="kicker">Process</div><h2>Fast, clear, and cleaned up right.</h2></div></div>
+  <div class="process-wrap reveal"><div class="process-line"></div><div class="steps">
+    <div class="step"><div class="dot">1</div><h3>Inspect</h3><p>Review the project, damage, and scope.</p></div>
+    <div class="step"><div class="dot">2</div><h3>Quote</h3><p>Provide clear pricing and timing.</p></div>
+    <div class="step"><div class="dot">3</div><h3>Schedule</h3><p>Set the work date and prepare.</p></div>
+    <div class="step"><div class="dot">4</div><h3>Build</h3><p>Complete the work efficiently.</p></div>
+    <div class="step"><div class="dot">5</div><h3>Clean</h3><p>Walk through and clean the site.</p></div>
+  </div></div>
+</section>
+
+<section>
+  <div class="section-head reveal"><div><div class="kicker">Before & After</div><h2>Damaged exterior to finished repair.</h2></div><p class="lead">Slide across the visual to show the repair transformation from weathered and damaged to clean, corrected, and complete.</p></div>
+  <div class="ba reveal">
+    <div class="pro-visual damaged"><div class="pro-roof"></div><div class="pro-home"></div><div class="pro-window w1"></div><div class="pro-window w2"></div><div class="pro-door"></div></div>
+    <div class="pro-visual after"><div class="pro-roof"></div><div class="pro-home"></div><div class="pro-window w1"></div><div class="pro-window w2"></div><div class="pro-door"></div></div>
+    <span class="ba-label left">DAMAGED</span><span class="ba-label right">REPAIRED</span><div class="ba-line" id="baLine"></div><input class="ba-range" id="baRange" type="range" min="0" max="100" value="50">
+  </div>
+</section>
+
+<section id="projects">
+  <div class="section-head reveal"><div><div class="kicker">Project Areas</div><h2>Roofing, siding, chimney, and construction work.</h2></div><p class="lead">A stronger project section makes MaxPro feel like a complete construction partner rather than only a roofing contractor.</p></div>
+  <div class="projects reveal">
+    <figure class="project"><div class="pro-visual"><div class="pro-roof"></div><div class="pro-home"></div><div class="pro-window w1"></div><div class="pro-window w2"></div><div class="pro-door"></div></div><span>Roofing Project</span></figure>
+    <figure class="project"><div class="pro-visual siding"><div class="pro-roof"></div><div class="pro-home"></div></div><span>Siding Repair</span></figure>
+    <figure class="project"><div class="pro-visual chimney"><div class="chimney"></div><div class="pro-roof"></div><div class="pro-home"></div></div><span>Chimney Repair</span></figure>
+    <figure class="project"><div class="pro-visual damaged"><div class="pro-roof"></div><div class="pro-home"></div></div><span>Storm Damage</span></figure>
+    <figure class="project"><div class="pro-visual remodel"><div class="pro-roof"></div><div class="pro-home"></div></div><span>Bathroom + Interior Construction</span></figure>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="section-head reveal"><div><div class="kicker">Customer Reviews</div><h2>Professional, quick, correct, and priced well.</h2></div></div>
+  <div class="review-grid reveal">
+    <div class="feature-review"><div class="stars">★★★★★</div><p class="quote">“The work was completed quickly, correctly, and priced well.”</p></div>
+    <div class="review-stack">
+      <div class="review-card"><div class="stars">★★★★★</div><p>“Professional and exceptional service from start to finish. The team arrived on time and answered all of my questions.”</p></div>
+      <div class="review-card"><div class="stars">★★★★★</div><p>“They did a thorough inspection, provided a competitive quote, completed the work in two days, and cleaned up afterwards.”</p></div>
+      <div class="review-card"><div class="stars">★★★★★</div><p>“If you’re hesitant about hiring a contractor for home repairs or renovations, James is the man to call.”</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-box" id="contact">
+  <div class="cta-copy"><div class="kicker">Request A Quote</div><h2>Ready to get the project handled?</h2><p>Call MaxPro Roofing & Construction for roofing, siding repair, chimney work, storm damage repair, bathroom remodeling, door frame reframing, and general construction services.</p><div class="actions"><a class="btn" href="tel:4045183964">Call (404) 518-3964</a></div></div>
+  <form class="form"><input placeholder="Name"><input placeholder="Phone"><select><option>What do you need?</option><option>Roofing</option><option>Siding Repair</option><option>Storm Damage Repair</option><option>Chimney Repair</option><option>Bathroom Remodel</option><option>Door Frame Reframing</option></select><button type="button">Request Quote</button></form>
+</section>
+
+<footer>
+  <div><h2>MaxPro Roofing & Construction</h2><p>794 Potomac Dr, Dallas, GA 30132<br>(404) 518-3964<br>Opens 8 AM</p></div>
+  <div class="footer-links"><a>Roofing</a><a>Siding Repair</a><a>Storm Damage</a><a>Chimney Repair</a><a>Bathroom Remodels</a><a>Door Frame Reframing</a><a>Reviews</a><a>Contact</a></div>
+</footer>
+
+<a class="floating" href="tel:4045183964">Call MaxPro</a>
+<script>
+const nav=document.getElementById('nav');
+const progress=document.getElementById('progress');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>60);
+  const max=document.documentElement.scrollHeight-window.innerHeight;
+  progress.style.width=((window.scrollY/max)*100)+'%';
+});
+const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.13});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+const tilt=document.getElementById('tilt');
+if(tilt){
+  tilt.addEventListener('mousemove',(e)=>{
+    const r=tilt.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width-.5;
+    const y=(e.clientY-r.top)/r.height-.5;
+    tilt.style.transform=`rotateY(${x*8}deg) rotateX(${-y*8}deg)`;
+  });
+  tilt.addEventListener('mouseleave',()=>tilt.style.transform='rotateY(0deg) rotateX(0deg)');
+}
+const tabs=document.querySelectorAll('.scope-tab');
+const panels=document.querySelectorAll('.scope-panel');
+tabs.forEach(t=>{
+  t.addEventListener('click',()=>{
+    tabs.forEach(x=>x.classList.remove('active'));
+    panels.forEach(p=>p.classList.remove('active'));
+    t.classList.add('active');
+    panels[Number(t.dataset.tab)].classList.add('active');
+  });
+});
+const baRange=document.getElementById('baRange');
+const baAfter=document.querySelector('.ba .after');
+const baLine=document.getElementById('baLine');
+baRange.addEventListener('input',(e)=>{
+  const v=e.target.value;
+  baAfter.style.clipPath=`inset(0 0 0 ${v}%)`;
+  baLine.style.left=`${v}%`;
+});
+document.querySelectorAll('.photo,.feature-review,.cta-box').forEach(el=>{
+  el.addEventListener('error',()=>{
+    const fb=document.createElement('div');
+    fb.className='image-fallback';
+    fb.textContent='MaxPro Project Image';
+    el.appendChild(fb);
+  });
+});
+</script>
+</body>
+</html>
